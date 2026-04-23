@@ -1,9 +1,11 @@
-import { ArtifactCard } from "@/components/artifacts/ArtifactCard";
+import Link from "next/link";
+import { ArrowUpRight, Clock } from "lucide-react";
 import { PageContent } from "@/components/layout/PageContent";
 import { navSections } from "@/lib/nav";
 
 export default function HomePage() {
-  const workstreams = navSections.filter((s) => s.label !== "Overview");
+  const overviewItems = navSections.find((s) => s.label === "Overview")?.items ?? [];
+  const layerItems = navSections.find((s) => s.label === "Layers")?.items ?? [];
 
   return (
     <PageContent>
@@ -26,30 +28,21 @@ export default function HomePage() {
         </h1>
 
         <p className="text-sm font-light text-black/50 leading-relaxed max-w-xl mb-6">
-          A comprehensive breakdown of SEIU Healthcare's current and future
-          technology state — from fragmented platforms to a unified member
-          lifecycle system. Organized into four workstreams covering CRM &amp;
-          platform, home care, content &amp; frontend, and governance.
+          A strategic architecture brief documenting SEIU Healthcare's transformation from fragmented platforms to a unified member lifecycle system — organized across eight interconnected layers, each with clear domain ownership and integration boundaries.
         </p>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-5">
           <div className="flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-purple-power" />
-            <span className="font-mono text-[10px] text-black/40">
-              70,000+ members
-            </span>
+            <span className="font-mono text-[10px] text-black/40">350,000+ member records</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-purple-power" />
-            <span className="font-mono text-[10px] text-black/40">
-              7 ecosystem nodes
-            </span>
+            <span className="font-mono text-[10px] text-black/40">8 ecosystem layers</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-purple-power" />
-            <span className="font-mono text-[10px] text-black/40">
-              4 workstreams
-            </span>
+            <span className="font-mono text-[10px] text-black/40">8 disconnected platforms today</span>
           </div>
         </div>
       </div>
@@ -60,83 +53,116 @@ export default function HomePage() {
         style={{ animationDelay: "60ms" }}
       >
         <p className="font-mono text-[10px] uppercase tracking-widest text-white/40 mb-2">
-          Context
+          Strategic context
         </p>
         <p className="text-sm font-light leading-relaxed text-white/80">
           SEIU Healthcare currently operates across{" "}
-          <strong className="font-semibold text-white">
-            eight disconnected platforms
-          </strong>{" "}
-          and{" "}
-          <strong className="font-semibold text-white">
-            five separate login environments
-          </strong>
-          . A member who touches the Training Centre, WorkersFirst, My65+, and
-          the mobile app is treated as four different people. This site documents
-          the architecture to unify them — from CRM selection through SSO
-          deployment, content infrastructure, and governance.
+          <strong className="font-semibold text-white">eight disconnected platforms</strong> and{" "}
+          <strong className="font-semibold text-white">five separate login environments</strong>.
+          A worker who touches the Training Centre, WorkersFirst, My65+, and the mobile app may be
+          treated as four different people. This site documents the architecture to unify them —
+          through shared identity, a centralized authentication plane, an event backbone, and a
+          member intelligence layer that makes the ecosystem operate as one institution.
         </p>
       </div>
 
-      {/* Workstream sections */}
-      {workstreams.map((section, si) => (
-        <section
-          key={section.label}
-          className="mb-12 animate-fade-up"
-          style={{ animationDelay: `${(si + 2) * 60}ms` }}
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-black/30">
-              {section.label}
-            </span>
-            <span className="flex-1 h-px bg-black/10" />
-          </div>
-
-          <div className="grid grid-cols-2 gap-3">
-            {section.items.map((item) => (
-              <ArtifactCard
+      {/* Overview section */}
+      <section className="mb-12 animate-fade-up" style={{ animationDelay: "120ms" }}>
+        <div className="flex items-center gap-3 mb-4">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-black/30">Overview</span>
+          <span className="flex-1 h-px bg-black/10" />
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          {overviewItems.map((item) =>
+            item.status === "soon" ? (
+              <div
                 key={item.href}
-                workstream={item.workstream}
-                title={item.label}
-                description={getArtifactDescription(item.href)}
-                audience={item.audience}
-                status={item.status}
+                className="bg-grey/50 border border-black/[0.06] rounded-xl p-5 opacity-60"
+              >
+                <div className="flex items-start justify-between mb-3">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-black/25">
+                    Overview
+                  </span>
+                  <Clock size={12} className="text-black/20" aria-hidden="true" />
+                </div>
+                <h3 className="text-sm font-medium text-black/40 leading-snug mb-1.5">{item.label}</h3>
+                <p className="text-xs font-light text-black/30 leading-snug">Coming soon.</p>
+              </div>
+            ) : (
+              <Link
+                key={item.href}
                 href={item.href}
+                className="group bg-white border border-black/10 rounded-xl p-5 block hover:border-purple-power/30 hover:-translate-y-px transition-all"
+              >
+                <div className="flex items-start justify-between mb-3">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-black/30">Overview</span>
+                  <ArrowUpRight
+                    size={14}
+                    className="text-black/20 group-hover:text-purple-power group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0"
+                    aria-hidden="true"
+                  />
+                </div>
+                <h3 className="text-sm font-medium text-black leading-snug mb-1.5">{item.label}</h3>
+                <p className="text-xs font-light text-black/50 leading-snug">
+                  {overviewDescriptions[item.href] ?? ""}
+                </p>
+              </Link>
+            )
+          )}
+        </div>
+      </section>
+
+      {/* Layers section */}
+      <section className="mb-12 animate-fade-up" style={{ animationDelay: "180ms" }}>
+        <div className="flex items-center gap-3 mb-4">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-black/30">Layers</span>
+          <span className="flex-1 h-px bg-black/10" />
+        </div>
+        <div className="flex flex-col gap-2">
+          {layerItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="group bg-white border border-black/10 rounded-xl px-5 py-4 flex items-center gap-4 hover:border-purple-power/30 hover:-translate-y-px transition-all"
+            >
+              <div className="w-7 h-7 rounded-md bg-purple-power/8 border border-purple-power/15 flex items-center justify-center flex-shrink-0">
+                <span className="font-mono text-[10px] text-purple-power font-medium">
+                  {item.layerNumber}
+                </span>
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-black leading-snug">{item.label}</p>
+                <p className="text-xs font-light text-black/40 leading-snug mt-0.5">
+                  {layerDescriptions[item.href] ?? ""}
+                </p>
+              </div>
+              <ArrowUpRight
+                size={14}
+                className="text-black/20 group-hover:text-purple-power flex-shrink-0 transition-colors"
+                aria-hidden="true"
               />
-            ))}
-          </div>
-        </section>
-      ))}
+            </Link>
+          ))}
+        </div>
+      </section>
     </PageContent>
   );
 }
 
-function getArtifactDescription(href: string): string {
-  const descriptions: Record<string, string> = {
-    "/ws1/unified-data-model":
-      "Member record schema, domain ownership, and the canonical identity model across all eight ecosystem nodes.",
-    "/ws1/sso-identity":
-      "IdP selection, Auth0/Okta evaluation, phased SSO rollout, and identity resolution vs authentication federation.",
-    "/ws1/node-integration-map":
-      "Weighted connection map of all ecosystem nodes — directional flows, trigger events, and CRM integration requirements.",
-    "/ws1/crm-agency-brief":
-      "Technical brief for the CRM agency scoping engagement — architecture requirements, platform evaluation, and open questions.",
-    "/ws2/campaign-brief":
-      "Phase 1 Home Care campaign strategy — the WSIB acquisition window, My65+ enrollment funnel, and three-phase campaign arc.",
-    "/ws2/worker-personas":
-      "Detailed persona profiles for the four core Home Care worker archetypes entering the SEIU ecosystem.",
-    "/ws2/onboarding-sequence":
-      "60-day automated onboarding sequence — CRM trigger logic, communication cadence, and conversion checkpoints.",
-    "/ws3/content-operations":
-      "Strapi content hub architecture, content type registry, editorial ownership model, and multi-consumer publishing flows.",
-    "/ws3/frontend-architecture":
-      "Three distinct frontend contexts — master site, campaign microsites, and future member app — with stack decisions and rationale.",
-    "/ws4/training-centre-governance":
-      "Training Centre governance framework — institutional alignment, operator accountability, and SEIU strategic ownership.",
-    "/ws4/investment-case":
-      "Economic case for the ecosystem infrastructure investment — lifetime value modelling and acquisition efficiency multipliers.",
-    "/ws4/programme-roadmap":
-      "Phased programme roadmap across all four workstreams — milestones, dependencies, and delivery sequencing through 2027.",
-  };
-  return descriptions[href] ?? "Artifact in progress.";
-}
+const overviewDescriptions: Record<string, string> = {
+  "/overview/overview": "Strategic thesis, ecosystem purpose, and the foundational principles governing the entire architecture.",
+  "/overview/current-state": "Current-state platform landscape — eight disconnected systems, five login environments, and the pain points driving transformation.",
+  "/overview/future-state": "Target-state domain model — the eight-layer dependency stack, SEIU Core Platform, and domain ownership boundaries.",
+  "/overview/roadmap": "Phased implementation sequence from foundation through mature target state.",
+};
+
+const layerDescriptions: Record<string, string> = {
+  "/layers/administrative-registry": "Official member registry, dues processing, employer taxonomy, and Finance-controlled membership workflows.",
+  "/layers/identity": "Canonical person record, external identifier crosswalks, merge/reconciliation logic, and person continuity.",
+  "/layers/idp-sso": "Centralized authentication plane, MFA, JWT token issuance, and SSO across all ecosystem nodes.",
+  "/layers/event-backbone": "Shared event transport, publish/subscribe routing, reliable fan-out, and institutional integration contracts.",
+  "/layers/member-intelligence": "Lifecycle state, engagement scoring, cohort orchestration, and next-best-action trigger logic.",
+  "/layers/workflow-case": "Internal operational workflows, member service cases, grievance handling, tasks, queues, and audit trails.",
+  "/layers/applications-nodes": "Mobile app, WorkersFirst, Training Centre, My65+, and the future member web app — execution and experience layer.",
+  "/layers/content-publishing": "Strapi editorial content hub, campaign publishing, content projections, and multi-surface distribution.",
+};
