@@ -25,7 +25,7 @@ export default function CurrentStatePage() {
         <svg
           role="img"
           aria-label="Current-state fragmented platform landscape"
-          viewBox="0 0 700 420"
+          viewBox="0 0 700 434"
           width="100%"
         >
           <defs>
@@ -35,62 +35,74 @@ export default function CurrentStatePage() {
           </defs>
 
           {/* Background label */}
-          <rect x="0" y="0" width="700" height="420" rx="8" fill="#ffffff" stroke="rgba(0,0,0,0.08)" strokeWidth="1" />
+          <rect x="0" y="0" width="700" height="434" rx="8" fill="#ffffff" stroke="rgba(0,0,0,0.08)" strokeWidth="1" />
           <text x="14" y="22" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.2)">CURRENT STATE — FRAGMENTED PLATFORM LANDSCAPE</text>
 
           {/* Unionware — center-left, primary */}
           <g style={{ animation: "fade-up 0.35s ease both", animationDelay: "0ms" }}>
-            <rect x="24" y="50" width="160" height="52" rx="6" fill="#411175" fillOpacity="0.06" stroke="#411175" strokeOpacity="0.25" strokeWidth="1" />
+            <rect x="24" y="50" width="160" height="66" rx="6" fill="#411175" fillOpacity="0.06" stroke="#411175" strokeOpacity="0.25" strokeWidth="1" />
             <text x="104" y="72" textAnchor="middle" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="600" fill="#411175">Unionware</text>
-            <text x="104" y="88" textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="#411175" fillOpacity="0.5">System of record · 350k+ records</text>
+            <text textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="#411175" fillOpacity="0.5">
+              <tspan x="104" y="88">System of record</tspan>
+              <tspan x="104" dy="12">350k+ records</tspan>
+            </text>
           </g>
 
           {/* Mobile App */}
           <g style={{ animation: "fade-up 0.35s ease both", animationDelay: "60ms" }}>
-            <rect x="270" y="50" width="140" height="52" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.12)" strokeWidth="1" />
+            <rect x="270" y="50" width="140" height="66" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.12)" strokeWidth="1" />
             <text x="340" y="72" textAnchor="middle" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="500" fill="#000000">Mobile App</text>
-            <text x="340" y="88" textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.35)">React Native · Node.js · Strapi</text>
+            <text textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.35)">
+              <tspan x="340" y="88">React Native · Node.js</tspan>
+              <tspan x="340" dy="12">· Strapi</tspan>
+            </text>
           </g>
 
           {/* Strapi */}
           <g style={{ animation: "fade-up 0.35s ease both", animationDelay: "120ms" }}>
-            <rect x="490" y="50" width="140" height="52" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.12)" strokeWidth="1" />
+            <rect x="490" y="50" width="140" height="66" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.12)" strokeWidth="1" />
             <text x="560" y="72" textAnchor="middle" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="500" fill="#000000">Strapi</text>
-            <text x="560" y="88" textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.35)">CMS + auth rules + segmentation</text>
+            <text textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.35)">
+              <tspan x="560" y="88">CMS + auth rules</tspan>
+              <tspan x="560" dy="12">+ segmentation</tspan>
+            </text>
           </g>
 
           {/* WorkersFirst */}
           <g style={{ animation: "fade-up 0.35s ease both", animationDelay: "180ms" }}>
-            <rect x="24" y="170" width="140" height="52" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.12)" strokeWidth="1" />
-            <text x="94" y="192" textAnchor="middle" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="500" fill="#000000">WorkersFirst</text>
-            <text x="94" y="208" textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.35)">Separate backend + auth</text>
+            <rect x="24" y="184" width="140" height="52" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.12)" strokeWidth="1" />
+            <text x="94" y="206" textAnchor="middle" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="500" fill="#000000">WorkersFirst</text>
+            <text x="94" y="222" textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.35)">Separate backend + auth</text>
           </g>
 
           {/* My65+ */}
           <g style={{ animation: "fade-up 0.35s ease both", animationDelay: "240ms" }}>
-            <rect x="200" y="170" width="130" height="52" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.12)" strokeWidth="1" />
-            <text x="265" y="192" textAnchor="middle" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="500" fill="#000000">My65+</text>
-            <text x="265" y="208" textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.35)">Separate platform + auth</text>
+            <rect x="200" y="184" width="130" height="52" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.12)" strokeWidth="1" />
+            <text x="265" y="206" textAnchor="middle" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="500" fill="#000000">My65+</text>
+            <text textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.35)">
+              <tspan x="265" y="222">Separate platform</tspan>
+              <tspan x="265" dy="12">+ auth</tspan>
+            </text>
           </g>
 
           {/* Training Centre */}
           <g style={{ animation: "fade-up 0.35s ease both", animationDelay: "300ms" }}>
-            <rect x="366" y="170" width="150" height="52" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.12)" strokeWidth="1" />
-            <text x="441" y="192" textAnchor="middle" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="500" fill="#000000">Training Centre</text>
-            <text x="441" y="208" textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.35)">MySIS · Canvas · Vubiz</text>
+            <rect x="366" y="184" width="150" height="52" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.12)" strokeWidth="1" />
+            <text x="441" y="206" textAnchor="middle" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="500" fill="#000000">Training Centre</text>
+            <text x="441" y="222" textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.35)">MySIS · Canvas · Vubiz</text>
           </g>
 
           {/* UnionSavings */}
           <g style={{ animation: "fade-up 0.35s ease both", animationDelay: "360ms" }}>
-            <rect x="548" y="170" width="130" height="52" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.12)" strokeWidth="1" />
-            <text x="613" y="192" textAnchor="middle" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="500" fill="#000000">UnionSavings</text>
-            <text x="613" y="208" textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.35)">Retention touchpoint</text>
+            <rect x="548" y="184" width="130" height="52" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.12)" strokeWidth="1" />
+            <text x="613" y="206" textAnchor="middle" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="500" fill="#000000">UnionSavings</text>
+            <text x="613" y="222" textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.35)">Retention touchpoint</text>
           </g>
 
           {/* Pain points row */}
           <g style={{ animation: "fade-up 0.35s ease both", animationDelay: "420ms" }}>
-            <rect x="24" y="290" width="652" height="104" rx="6" fill="#EEEEEE" stroke="rgba(0,0,0,0.08)" strokeWidth="1" />
-            <text x="36" y="312" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.3)">FRAGMENTATION CONSEQUENCES</text>
+            <rect x="24" y="304" width="652" height="104" rx="6" fill="#EEEEEE" stroke="rgba(0,0,0,0.08)" strokeWidth="1" />
+            <text x="36" y="326" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.3)">FRAGMENTATION CONSEQUENCES</text>
             {[
               { x: 36, label: "5 login environments" },
               { x: 186, label: "No canonical identity" },
@@ -104,8 +116,8 @@ export default function CurrentStatePage() {
               const row = Math.floor(i / 4);
               return (
                 <g key={label}>
-                  <circle cx={x + 4} cy={330 + row * 22} r="3" fill="#411175" fillOpacity="0.3" />
-                  <text x={x + 12} y={330 + row * 22 + 4} fontFamily="'Work Sans', system-ui, sans-serif" fontSize="10.5" fill="rgba(0,0,0,0.5)">{label}</text>
+                  <circle cx={x + 4} cy={344 + row * 22} r="3" fill="#411175" fillOpacity="0.3" />
+                  <text x={x + 12} y={344 + row * 22 + 4} fontFamily="'Work Sans', system-ui, sans-serif" fontSize="10.5" fill="rgba(0,0,0,0.5)">{label}</text>
                 </g>
               );
             })}
@@ -114,9 +126,9 @@ export default function CurrentStatePage() {
           {/* Integration lines — dashed to show fragility */}
           <line x1="184" y1="76" x2="270" y2="76" stroke="rgba(0,0,0,0.15)" strokeWidth="1" strokeDasharray="4 3" markerEnd="url(#cs-arrow)" />
           <line x1="410" y1="76" x2="490" y2="76" stroke="rgba(0,0,0,0.15)" strokeWidth="1" strokeDasharray="4 3" markerEnd="url(#cs-arrow)" />
-          <line x1="104" y1="102" x2="104" y2="170" stroke="rgba(0,0,0,0.1)" strokeWidth="1" strokeDasharray="3 3" markerEnd="url(#cs-arrow)" />
-          <line x1="340" y1="102" x2="265" y2="170" stroke="rgba(0,0,0,0.1)" strokeWidth="1" strokeDasharray="3 3" markerEnd="url(#cs-arrow)" />
-          <line x1="340" y1="102" x2="441" y2="170" stroke="rgba(0,0,0,0.1)" strokeWidth="1" strokeDasharray="3 3" markerEnd="url(#cs-arrow)" />
+          <line x1="104" y1="116" x2="104" y2="184" stroke="rgba(0,0,0,0.1)" strokeWidth="1" strokeDasharray="3 3" markerEnd="url(#cs-arrow)" />
+          <line x1="340" y1="116" x2="265" y2="184" stroke="rgba(0,0,0,0.1)" strokeWidth="1" strokeDasharray="3 3" markerEnd="url(#cs-arrow)" />
+          <line x1="340" y1="116" x2="441" y2="184" stroke="rgba(0,0,0,0.1)" strokeWidth="1" strokeDasharray="3 3" markerEnd="url(#cs-arrow)" />
         </svg>
         <p className="font-mono text-[10px] text-black/25 text-center mt-2">
           Dashed lines represent fragile, ad hoc integrations — not architectural contracts

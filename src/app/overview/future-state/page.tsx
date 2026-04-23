@@ -37,38 +37,51 @@ export default function FutureStatePage() {
           <text x="14" y="18" fontFamily="'DM Mono', monospace" fontSize="9" fill="#411175" fillOpacity="0.5">SEIU CORE PLATFORM</text>
 
           {[
-            { n: 1, name: "Administrative Registry", desc: "Registry · Dues · Taxonomy", x: 14, y: 30, w: 200 },
-            { n: 2, name: "Identity", desc: "Canonical person · Crosswalks", x: 232, y: 30, w: 200 },
-            { n: 3, name: "IdP / SSO", desc: "Auth · MFA · Tokens · SSO", x: 450, y: 30, w: 234 },
-            { n: 4, name: "Event Backbone", desc: "Transport · Fan-out · Retry", x: 14, y: 135, w: 200 },
-            { n: 5, name: "Member Intelligence", desc: "Lifecycle · Scoring · Nudges", x: 232, y: 135, w: 200 },
-            { n: 6, name: "Workflow & Case", desc: "Casework · Tasks · Queues", x: 450, y: 135, w: 234 },
+            { n: 1, name: "Administrative Registry", desc: ["Registry · Dues", "· Taxonomy"], x: 14, y: 30, w: 200 },
+            { n: 2, name: "Identity", desc: ["Canonical person", "· Crosswalks"], x: 232, y: 30, w: 200 },
+            { n: 3, name: "IdP / SSO", desc: ["Auth · MFA", "· Tokens · SSO"], x: 450, y: 30, w: 234 },
+            { n: 4, name: "Event Backbone", desc: ["Transport · Fan-out", "· Retry"], x: 14, y: 135, w: 200 },
+            { n: 5, name: "Member Intelligence", desc: ["Lifecycle · Scoring", "· Nudges"], x: 232, y: 135, w: 200 },
+            { n: 6, name: "Workflow & Case", desc: ["Casework · Tasks", "· Queues"], x: 450, y: 135, w: 234 },
           ].map(({ n, name, desc, x, y, w }, i) => (
             <g key={n} style={{ animation: "fade-up 0.35s ease both", animationDelay: `${i * 60}ms` }}>
               <rect x={x + 6} y={y + 26} width={w - 12} height={74} rx="6" fill="#ffffff" stroke="rgba(65,17,117,0.15)" strokeWidth="1" />
               <rect x={x + 14} y={y + 34} width="24" height="22" rx="4" fill="#411175" fillOpacity="0.08" />
               <text x={x + 26} y={y + 49} textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="10" fontWeight="500" fill="#411175">{n}</text>
               <text x={x + 46} y={y + 49} fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="500" fill="#000000">{name}</text>
-              <text x={x + 46} y={y + 64} fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.3)">{desc}</text>
+              <text fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.3)">
+                {desc.map((line, li) => (
+                  <tspan key={li} x={x + 46} y={li === 0 ? y + 64 : undefined} dy={li === 0 ? undefined : 12}>{line}</tspan>
+                ))}
+              </text>
             </g>
           ))}
 
           {/* Domain applications row */}
           <g style={{ animation: "fade-up 0.35s ease both", animationDelay: "360ms" }}>
-            <rect x="14" y="243" width="200" height="90" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.1)" strokeWidth="1" />
+            <rect x="14" y="243" width="200" height="106" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.1)" strokeWidth="1" />
             <text x="26" y="264" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.3)">LAYER 7</text>
-            <text x="26" y="280" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="500" fill="#000000">Applications & Nodes</text>
-            <text x="26" y="296" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.3)">Mobile · WF · TC · My65+</text>
-            <text x="26" y="314" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.25)">Consume core · Emit events</text>
+            <text x="26" y="280" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="500" fill="#000000">Applications &amp; Nodes</text>
+            <text fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.3)">
+              <tspan x="26" y="296">Mobile · WF · TC</tspan>
+              <tspan x="26" dy="12">· My65+</tspan>
+            </text>
+            <text x="26" y="326" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.25)">Consume core · Emit events</text>
           </g>
 
           {/* Content domain */}
           <g style={{ animation: "fade-up 0.35s ease both", animationDelay: "420ms" }}>
-            <rect x="232" y="243" width="452" height="90" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.1)" strokeWidth="1" />
+            <rect x="232" y="243" width="452" height="106" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.1)" strokeWidth="1" />
             <text x="244" y="264" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.3)">LAYER 8</text>
-            <text x="244" y="280" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="500" fill="#000000">Content & Publishing</text>
-            <text x="244" y="296" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.3)">Strapi · Editorial content · Campaigns · Projections</text>
-            <text x="244" y="314" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.25)">Pure content layer — not auth, not policy, not workflow</text>
+            <text x="244" y="280" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="12" fontWeight="500" fill="#000000">Content &amp; Publishing</text>
+            <text fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.3)">
+              <tspan x="244" y="296">Strapi · Editorial content</tspan>
+              <tspan x="244" dy="12">· Campaigns · Projections</tspan>
+            </text>
+            <text fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.25)">
+              <tspan x="244" y="326">Pure content layer —</tspan>
+              <tspan x="244" dy="12">not auth, not policy, not workflow</tspan>
+            </text>
           </g>
 
           {/* Integration model label */}
