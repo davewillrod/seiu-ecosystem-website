@@ -7,7 +7,7 @@ export const navSections: NavSection[] = [
       { label: "Overview", href: "/overview/overview", status: "live", section: "overview" },
       { label: "Current State", href: "/overview/current-state", status: "live", section: "overview" },
       { label: "Future State", href: "/overview/future-state", status: "live", section: "overview" },
-      { label: "Roadmap", href: "/overview/roadmap", status: "soon", section: "overview" },
+      { label: "Roadmap", href: "/overview/roadmap", status: "live", section: "overview" },
     ],
   },
   {
