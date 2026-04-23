@@ -4,6 +4,7 @@ interface PageHeaderProps {
   titleAccent?: string;
   description: string;
   meta: { label: string; value: string }[];
+  icon?: React.ReactNode;
 }
 
 export function PageHeader({
@@ -12,6 +13,7 @@ export function PageHeader({
   titleAccent,
   description,
   meta,
+  icon,
 }: PageHeaderProps) {
   const renderTitle = () => {
     if (!titleAccent) return title;
@@ -39,7 +41,14 @@ export function PageHeader({
       </div>
 
       {/* Title */}
-      <h1 className="text-4xl font-bold leading-tight mb-3">{renderTitle()}</h1>
+      <div className="flex items-center gap-3 mb-3">
+        {icon && (
+          <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-purple-power/8 flex items-center justify-center text-purple-power">
+            {icon}
+          </div>
+        )}
+        <h1 className="text-4xl font-bold leading-tight">{renderTitle()}</h1>
+      </div>
 
       {/* Description */}
       <p className="text-sm font-light text-black/50 leading-relaxed max-w-xl mb-6">

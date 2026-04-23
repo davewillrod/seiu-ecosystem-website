@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Zap } from "lucide-react";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { PageContent } from "@/components/layout/PageContent";
 import { TabBar } from "@/components/ui/TabBar";
@@ -34,6 +35,7 @@ export default function EventBackbonePage() {
           { label: "Status", value: "Finalized" },
           { label: "Date", value: "April 2026" },
         ]}
+        icon={<Zap size={20} />}
       />
 
       <TabBar tabs={TABS} active={activeTab} onChange={setActiveTab} />
