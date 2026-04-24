@@ -76,11 +76,13 @@ export default function UnifiedStaffPortalPage() {
             { n: "L8", name: "Content", desc: "Strapi · Editorial", x: 584 },
           ].map(({ n, name, desc, x }, i) => (
             <g key={n} style={{ animation: "fade-up 0.35s ease both", animationDelay: `${160 + i * 40}ms` }}>
-              <rect x={x} y="202" width="104" height="70" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.1)" strokeWidth="1" />
-              <rect x={x + 8} y="212" width="22" height="18" rx="3" fill="#411175" fillOpacity="0.07" />
-              <text x={x + 19} y="225" textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="#411175">{n}</text>
-              <text x={x + 52} y="229" textAnchor="middle" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="11" fontWeight="500" fill="#000000">{name}</text>
-              <text x={x + 52} y="245" textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.3)">{desc}</text>
+              <rect x={x} y="202" width="104" height="78" rx="6" fill="#ffffff" stroke="rgba(0,0,0,0.1)" strokeWidth="1" />
+              {/* Badge centered at top */}
+              <rect x={x + 38} y="211" width="28" height="16" rx="3" fill="#411175" fillOpacity="0.07" />
+              <text x={x + 52} y="223" textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="#411175">{n}</text>
+              {/* Name and desc centered below badge */}
+              <text x={x + 52} y="242" textAnchor="middle" fontFamily="'Work Sans', system-ui, sans-serif" fontSize="11" fontWeight="500" fill="#000000">{name}</text>
+              <text x={x + 52} y="258" textAnchor="middle" fontFamily="'DM Mono', monospace" fontSize="9" fill="rgba(0,0,0,0.3)">{desc}</text>
             </g>
           ))}
 
