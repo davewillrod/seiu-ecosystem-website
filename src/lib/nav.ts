@@ -8,6 +8,7 @@ export const navSections: NavSection[] = [
       { label: "Current State", href: "/overview/current-state", status: "live", section: "overview" },
       { label: "Future State", href: "/overview/future-state", status: "live", section: "overview" },
       { label: "Roadmap", href: "/overview/roadmap", status: "live", section: "overview" },
+      { label: "Staff Portal", href: "/overview/unified-staff-portal", status: "live", section: "overview" },
     ],
   },
   {

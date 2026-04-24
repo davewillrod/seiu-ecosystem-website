@@ -86,7 +86,8 @@ Overview
   ├── Overview          ← ecosystem architecture overview (from architecture-overview.md)
   ├── Current State     ← current-state system landscape (from architecture-overview.md §2)
   ├── Future State      ← target-state domain model (from architecture-overview.md §3)
-  └── Roadmap           ← coming soon (will derive from architecture-roadmap.md when available)
+  ├── Roadmap           ← phased execution plan (from architecture-roadmap.md)
+  └── Staff Portal      ← unified internal operations portal (from unified-staff-portal.md)
 
 Layers
   ├── Administrative Registry   ← Layer 1 (from administrative-registry-domain-strategy.md)
@@ -105,7 +106,7 @@ Each nav item has: `label`, `href`, `status` (`live` | `soon`), `section` (`over
 
 - Overview pages live at `/overview/[slug]` — e.g. `/overview/current-state`, `/overview/future-state`
 - Layer pages live at `/layers/[slug]` — e.g. `/layers/administrative-registry`, `/layers/event-backbone`
-- The Roadmap page renders with `status: 'soon'` until `architecture-roadmap.md` is available
+- All current overview pages are `status: 'live'` — the Staff Portal page (`/overview/unified-staff-portal`) documents the planned internal operations portal
 
 ### Layer ordering
 
@@ -278,7 +279,7 @@ export default function LayerPage() {
 - Artifact content is static — written directly in page files as typed data structures or JSX
 - Do not invent content — always derive from the architecture documents listed in the Research Reference section
 - If a page's content is not yet defined (e.g. Roadmap), render a placeholder card with `status: 'soon'` styling
-- Overview pages derive exclusively from `architecture-overview.md` — do not pull domain-specific detail into them
+- Overview pages generally derive from `architecture-overview.md` — the exception is the Staff Portal page, which derives from `unified-staff-portal.md`
 - Layer pages derive from their corresponding domain strategy doc, with `architecture-overview.md` as the governing frame
 - All dates default to April 2026 unless specified
 
@@ -359,6 +360,7 @@ Strategic context for all pages is organized into scoped architecture documents.
 | `workflow-case-domain-strategy.md`          | Layer 6 — operational casework, grievance handling, queues, SLAs                            | `/layers/workflow-case`         |
 | `applications-domain-strategy.md`           | Layer 7 — node systems (Training Centre, WorkersFirst, My65+, mobile app)                   | `/layers/applications-nodes`    |
 | `content-publishing-system-strategy.md`     | Layer 8 — Strapi content hub, editorial publishing, content projections, frontend delivery   | `/layers/content-publishing`    |
+| `unified-staff-portal.md`                   | Unified internal operations portal — staff-facing web app consuming all architecture layers  | `/overview/unified-staff-portal` |
 
 ### Governing strategy source
 

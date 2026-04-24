@@ -154,6 +154,7 @@ const overviewDescriptions: Record<string, string> = {
   "/overview/current-state": "Current-state platform landscape — eight disconnected systems, five login environments, and the pain points driving transformation.",
   "/overview/future-state": "Target-state domain model — the eight-layer dependency stack, SEIU Core Platform, and domain ownership boundaries.",
   "/overview/roadmap": "Phased implementation sequence from foundation through mature target state.",
+  "/overview/unified-staff-portal": "Unified web interface for SEIU staff — single operational surface over the entire distributed architecture.",
 };
 
 const layerDescriptions: Record<string, string> = {
